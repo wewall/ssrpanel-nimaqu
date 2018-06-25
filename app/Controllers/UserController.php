@@ -1197,6 +1197,11 @@ class UserController extends BaseController
             $res['msg'] = "余额不足，总价为".$price."元。";
             return $response->getBody()->write(json_encode($res));
         }
+        if($user->userType == 0){
+            $res['ret'] = 0;
+            $res['msg'] = "你未进行充值验证,无法进行套餐购买。";
+            return $response->getBody()->write(json_encode($res));
+        }
 
         $user->money=$user->money-$price;
         $user->save();
