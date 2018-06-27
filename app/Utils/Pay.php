@@ -824,12 +824,12 @@ class Pay
     private static function  depositedCheck($amt, $usr){
         
         if(Config::get('deposited_amount') <= $amt){
-            Telegram::SendManage("用户ID: " . $usr->id . "
+            $usr->userType = 1;
+        }
+	Telegram::SendManage("用户ID: " . $usr->id . "
 用户昵称: " . $usr->user_name . "
 用户邮箱: " . $usr->email . "
 捐赠金额: " . $amt . " 元！");
-            $usr->userType = 1;
-        }
     }
     
     public static function callback($request)
