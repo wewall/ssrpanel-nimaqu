@@ -73,7 +73,12 @@ class TelegramProcess
                     $bot->sendMessage($message->getChat()->getId(), $help_list);
                     break;
                 default:
-                    if ($message->getPhoto() != null) {
+                    if($message->getText() == "签到"){
+                        TelegramProcess::needbind_method($bot, $message, "checkin", $user, $message->getMessageId());
+                    }else if($user->id == 1 and $message->getPhoto() == null){ 
+                        // ID替换为你的ID
+                        Telegram::Send($message->getText());
+                    }else if($message->getPhoto() != null) {
                         $bot->sendMessage($message->getChat()->getId(), "正在解码，请稍候。。。");
                         $bot->sendChatAction($message->getChat()->getId(), 'typing');
 
