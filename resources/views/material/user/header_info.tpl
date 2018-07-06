@@ -166,7 +166,7 @@
 		}
 		
 		.page-green .ui-content-header {
-			background-image: url(https://cdn.jsdelivr.net/gh/sspuic/p@0x01/public/theme/material/css/images/bg/amber.jpg);
+			background-image: url(/theme/material/css/images/bg/amber.jpg);
 		}
 		
 		
